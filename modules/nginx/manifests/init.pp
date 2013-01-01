@@ -15,7 +15,7 @@ class nginx {
 
   file { '/etc/nginx/fastcgi_params':
     ensure => present,
-    source => template('nginx/fastcgi_params.erb'),
+    content => template('nginx/fastcgi_params.erb'),
     owner => 'root',
     group => 'root',
     mode => '0644',
@@ -35,7 +35,7 @@ class nginx {
 
   file { '/etc/nginx/scgi_params':
     ensure => present,
-    source => template('nginx/scgi_params.erb'),
+    content => template('nginx/scgi_params.erb'),
     owner => 'root',
     group => 'root',
     mode => '0644',
@@ -45,7 +45,7 @@ class nginx {
 
   file { '/etc/nginx/uwsgi_params':
     ensure => present,
-    source => template('nginx/uwsgi_params.erb'),
+    content => template('nginx/uwsgi_params.erb'),
     owner => 'root',
     group => 'root',
     mode => '0644',
