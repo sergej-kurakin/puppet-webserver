@@ -1,27 +1,6 @@
 node 'puppettest' {
-  apt::key { "nginx":
-    key        => '7BD9BF62',
-    key_source => 'http://nginx.org/keys/nginx_signing.key',
-  }
 
-  apt::source { 'nginx':
-    location   => 'http://nginx.org/packages/debian/',
-    repos      => 'nginx',
-    key        => '7BD9BF62',
-    key_source => 'http://nginx.org/keys/nginx_signing.key',
-  }
-
-  apt::key { "dotdeb":
-    key        => '89DF5277',
-    key_source => 'http://www.dotdeb.org/dotdeb.gpg',
-  }
-
-  apt::source { 'dotdeb':
-    location   => 'http://packages.dotdeb.org',
-    repos      => 'all',
-    key        => '89DF5277',
-    key_source => 'http://www.dotdeb.org/dotdeb.gpg',
-  }
+  include apts::nginx, apts:dotdeb
 
   package { ['screen', 'vim', 'bash-completion'] :
     ensure => present,
