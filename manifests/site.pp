@@ -6,6 +6,6 @@ node 'puppettest' {
     ensure => present,
   }
 
-
+  include ntp, mysql, php5 nginx
 
 }
