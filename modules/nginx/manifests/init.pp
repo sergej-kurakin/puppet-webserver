@@ -25,7 +25,7 @@ class nginx {
 
   file { '/etc/nginx/mime.types':
     ensure => present,
-    source => template('nginx/mime.types.erb'),
+    source => 'puppet:///modules/nginx/mime.types',
     owner => 'root',
     group => 'root',
     mode => '0644',
