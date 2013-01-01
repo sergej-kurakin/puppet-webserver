@@ -53,6 +53,16 @@ class nginx {
     notify => Service['nginx'],
   }
 
+  file { '/etc/nginx/conf.d/default.conf':
+      ensure => present,
+      content => template('nginx/conf.d/default.conf.erb'),
+      owner => 'root',
+      group => 'root',
+      mode => '0644',
+      require => Package['nginx'],
+      notify => Service['nginx'],
+    }
+
   service { 'nginx':
     ensure => running,
     hasstatus => true,
