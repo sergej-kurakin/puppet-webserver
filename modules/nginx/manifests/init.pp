@@ -5,7 +5,7 @@ class nginx {
 
   file { '/etc/nginx/nginx.conf':
     ensure => present,
-    source => template('nginx/nginx.conf.erb'),
+    content => template('nginx/nginx.conf.erb'),
     owner => 'root',
     group => 'root',
     mode => '0644',
