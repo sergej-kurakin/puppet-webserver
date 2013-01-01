@@ -4,6 +4,6 @@ class php5::service {
     hasstatus => true,
     hasrestart => true,
     enable => true,
-    require => Class['php::install'],
+    require => Class['php5::install'],
   }
 }
