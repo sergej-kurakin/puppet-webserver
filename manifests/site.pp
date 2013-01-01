@@ -71,4 +71,12 @@ node 'puppettest' {
     ensure => present,
   }
 
+  service { "mysql":
+      ensure => running,
+      hasstatus => true,
+      hasrestart => true,
+      enable => true,
+      require => Package["mysql-server-5.5"],
+    }
+
 }
