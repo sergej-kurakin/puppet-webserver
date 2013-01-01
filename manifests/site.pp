@@ -55,4 +55,20 @@ node 'puppettest' {
     ensure => present,
   }
 
+  service { "php5-fpm":
+    ensure => running,
+    hasstatus => true,
+    hasrestart => true,
+    enable => true,
+    require => Package[php5-fpm],
+  }
+
+  package { "mysql-client-5.5":
+    ensure => present,
+  }
+
+  package { "mysql-server-5.5":
+    ensure => present,
+  }
+
 }
