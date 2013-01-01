@@ -1,4 +1,4 @@
-class 'mysql' {
+class mysql {
   package { "mysql-client-5.5":
     ensure => present,
   }
